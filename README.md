@@ -1,4 +1,4 @@
-# Roteirização geoespacial: diferentes abordagens
+um# Roteirização geoespacial: diferentes abordagens
 
 ### Introdução
 
@@ -137,20 +137,15 @@ print(f"Colunas disponíveis: {list(gdf.columns)}")
 
 ### Definimos o roteiro mais curto
 
-A classe *NearestNeighbors*, do módulo *sklearn.neighbors*, juntamente com o algoritmo *ball_tree*, fornece uma solução compatível para problemas de busca por proximidade, como o de roteamento entre pontos geográficos.
+Conforme detalhamos no [artigo anterior sobre o Percurso do Comida di Buteco](https://github.com/guiajf/percurso), a tarefa de encontrar a rota mais curta que visita todos os pontos de interesse (neste caso, os 40 bares) exatamente uma vez corresponde à variante aberta do **Problema do Caixeiro Viajante (TSP)** , equivalente à busca por um *caminho hamiltoniano* de custo mínimo.
 
-Essa abordagem foi adotada por sua simplicidade e eficiência ao lidar com 40 pontos, apresentando uma complexidade computacional de *O(n²)*, perfeitamente adequada para essa escala.
+Naquele artigo, explicamos que o TSP é classificado como **NP-difícil**, o que significa que não há algoritmo conhecido capaz de encontrar a solução exata em tempo polinomial para um grande número de cidades. Para se ter uma ideia, avaliar todas as rotas possíveis para 40 pontos exigiria testar aproximadamente \(8 \times 10^{45}\) combinações — um número tão astronômico que mesmo os computadores mais rápidos levariam um tempo incomensurável para completar a tarefa.
 
-Embora não assegure uma solução matemática ideal, pois o *Problema do Caixeiro Viajante* é classificado como **NP-difícil**, o método entrega um resultado prático, rápido e satisfatório para o contexto proposto.
+É precisamente por essa inviabilidade computacional que se justifica o uso de heurísticas, que sacrificam a garantia de otimalidade em favor da eficiência prática.
 
-O termo "NP-difícil" significa que, para instâncias grandes do problema, não se conhece algoritmo capaz de encontrar a solução exata em tempo polinomial (ou seja, em um tempo que cresça de maneira gerenciável com o número de cidades). Para encontrar a solução exata, seria necessário avaliar todas as 40! combinações possíveis, o que equivale a aproximadamente 8 × 10⁴⁵ rotas (o número 8 seguido de 45 zeros). Mesmo os computadores mais rápidos levariam um tempo incomensurável para completar essa tarefa.
+Seguindo a mesma estratégia adotada anteriormente, empregamos aqui a **heurística gulosa do vizinho mais próximo**, implementada por meio da classe `NearestNeighbors` do módulo `sklearn.neighbors` com o algoritmo `ball_tree`. Um ponto de partida (Ponto 0 - ADEGA BAR) foi definido, e o algoritmo constrói a rota adicionando sequencialmente o vizinho mais próximo ainda não visitado.
 
-É precisamente por essa inviabilidade computacional que se justifica o uso de heurísticas, como a do vizinho mais próximo, que sacrificam a garantia de otimalidade em favor da eficiência prática.
-
-Um ponto de início (Ponto 0 - ADEGA BAR) foi definido para que o algoritmo principal construa a rota, adicionando o vizinho mais próximo ainda não visitado até atingir o ponto de destino ou visitar todos os pontos.
-
-A saída mostra a sequência de bares a serem visitados na rota calculada.
-
+A saída abaixo mostra a sequência de bares gerada por essa heurística, que servirá de base para as etapas seguintes de clusterização e mapeamento:
 
 ```python
 # Calcular a distância para cada par de pontos consecutivos
