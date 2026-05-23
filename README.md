@@ -139,7 +139,7 @@ print(f"Colunas disponíveis: {list(gdf.columns)}")
 
 Conforme detalhamos no [artigo anterior sobre o Percurso do Comida di Buteco](https://github.com/guiajf/percurso), a tarefa de encontrar a rota mais curta que visita todos os pontos de interesse (neste caso, os 40 bares) exatamente uma vez corresponde à variante aberta do **Problema do Caixeiro Viajante (TSP)** , equivalente à busca por um *caminho hamiltoniano* de custo mínimo.
 
-Naquele artigo, explicamos que o TSP é classificado como **NP-difícil**, o que significa que não há algoritmo conhecido capaz de encontrar a solução exata em tempo polinomial para um grande número de cidades. Para se ter uma ideia, avaliar todas as rotas possíveis para 40 pontos exigiria testar aproximadamente \(8 \times 10^{45}\) combinações — um número tão astronômico que mesmo os computadores mais rápidos levariam um tempo incomensurável para completar a tarefa.
+Naquele artigo, explicamos que o TSP é classificado como **NP-difícil**, o que significa que não há algoritmo conhecido capaz de encontrar a solução exata em tempo polinomial para um grande número de cidades. Para se ter uma ideia, avaliar todas as rotas possíveis para 40 pontos exigiria testar aproximadamente $\(8 \times 10^{45}\)$ combinações — um número tão astronômico que mesmo os computadores mais rápidos levariam um tempo incomensurável para completar a tarefa.
 
 É precisamente por essa inviabilidade computacional que se justifica o uso de heurísticas, que sacrificam a garantia de otimalidade em favor da eficiência prática.
 
