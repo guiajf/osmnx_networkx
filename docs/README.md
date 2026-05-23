@@ -8,4 +8,4 @@ do evento possa percorrer os bares agrupados em pequenos clusters.
 - `roteiros_osmnx_clusters.html` - Mapa interativo gerado pelo Python
 
 ## Acesse o mapa
-[https://guiajf.github.io/osmnx_networkx/](https://guiajf.github.io/osmnx_networkx/)
+[https://guiajf.github.io/roteirizador-osmnx/](https://guiajf.github.io/roteirizador-osmnx/)
