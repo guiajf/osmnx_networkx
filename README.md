@@ -1,4 +1,4 @@
-um# Roteirização geoespacial: diferentes abordagens
+# Roteirização geoespacial: diferentes abordagens
 
 ### Introdução
 
@@ -56,10 +56,6 @@ Utilizado para:
     a) agrupar bares em clusters por proximidade geográfica
     b) implementar a heurística gulosa do *vizinho mais próximo*,
        resolvendo o **TSP** aberto dentro de cada cluster.
-
-- **matplotlib**: biblioteca fundamental para visualização de dados.
-Utilizada indiretamente pelo OSMnx para plotagem, mas seu módulo
-pyplot não é chamado explicitamente no código.
 
 - **warnings**: módulo da biblioteca padrão para controle de mensagens
 de aviso. Utilizado para suprimir alertas técnicos e manter a
