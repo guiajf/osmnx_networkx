@@ -813,6 +813,8 @@ O mapa interativo pode ser acessado em: https://guiajf.github.io/roteirizador-os
 
 **Referências**
 
+Boeing, Geoff. *Modeling and Analyzing Urban Networks and Amenities with OSMnx*, 2025. Geographical Analysis, published online ahead of print. doi:10.1111/gean.70009.
+
 Bullock, R. *Great Circle Distances and Bearings Between Two Locations*, 2007. Disponível em: https://dtcenter.org/sites/default/files/community-code/met/docs/write-ups/gc_simple.pdf. Acesso em: 24 de maio 2026.
 
 **Folium**. *Quickstart*. Folium Documentation, 2025. Disponível em: https://python-visualization.github.io/folium/latest/. Acesso em: 24 maio 2026.
@@ -833,10 +835,7 @@ Rego, César et al. *Traveling salesman problem heuristics: leading methods, imp
 
 **Scikit-Learn**. *K-means clustering*. Scikit-learn Documentation, 2026. Disponível em: https://scikit-learn.org/stable/modules/clustering.html#k-means. Acesso em: 24 maio 2026.
 
-University of Waterloo. *TSP heuristics and approximation algorithms*. Combinatorial Optimization Group, Waterloo, 2007. Disponível em: https://www.math.uwaterloo.ca/tsp/methods/. Acesso em: 24 maio 2026.
-
 Veness, C. *Calculate distance, bearing and more between latitude/longitude points*, 2024. Disponível em: https://www.movable-type.co.uk/scripts/latlong.html. Acesso em: 24 maio 2026.
-
 
 
 
