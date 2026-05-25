@@ -16,11 +16,13 @@ A solução intermediária integra o uso do **ORS**, que utiliza rotas reais bas
 
 Nos próximos artigos, analisaremos detalhadamente cada uma dessas três abordagens, a começar pelo **OSMnx** em conjunto com o **NetworkX**, depois avançamos para a solução intermediária com o **ORS** e concluímos com a abordagem mais leve baseada no **OSRM**.
 
+### Apresentação
 
+A primeira abordagem adota o **OSMnx** em conjunto com o **NetworkX** para construir uma solução de roteirização autônoma, capaz de operar offline após o download inicial dos dados viários. Nesta arquitetura, as duas bibliotecas desempenham papéis complementares, mas distintos.
 
+O **OSMnx** é responsável pela interface com o *OpenStreetMap* e pela construção do grafo viário. Ele baixa a geometria das ruas de uma região (definida por um ponto central e um raio) e a converte em um objeto de *grafo* que o **NetworkX** pode processar. Além disso, o **OSMnx** oferece utilitários para simplificar a topologia das ruas, projetar o grafo para coordenadas métricas e encontrar os *nós* mais próximos a determinadas coordenadas geográficas (função *nearest_nodes*). Em outras palavras, o **OSMnx** atua como a camada de extração, preparação e indexação dos dados geoespaciais, transformando informações brutas do mapa em uma estrutura de grafo pronta para análise.
 
-
-
+O **NetworkX**, por sua vez, é a biblioteca que implementa os algoritmos de teoria dos grafos propriamente ditos. Uma vez que o *grafo* é carregado na memória pelo **OSMnx**, o **NetworkX** assume o controle de todas as operações de consulta e otimização. É ele que calcula a distância real entre dois pontos através da função *nx.shortest_path_length(G, node1, node2, weight='length')*, percorrendo o *grafo* e somando os pesos das *arestas* (que representam os comprimentos dos segmentos de rua). Da mesma forma, o **NetworkX** é responsável por extrair o caminho completo (a sequência de *nós*) que conecta dois bares através da função *nx.shortest_path(G, node1, node2, weight='length')*, informação essencial para desenhar a rota real sobre o mapa. O **NetworkX** também poderia ser utilizado para análises mais avançadas, como identificar a centralidade de determinados nós ou calcular componentes conectados, de acordo com exemplos que fornecemos [aqui](https://github.com/guiajf/cb_network), ainda que no contexto do roteirizador tenhamos nos limitado às funcionalidades básicas de caminho mínimo.
 
 
 ### Bibliotecas
